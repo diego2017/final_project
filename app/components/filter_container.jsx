@@ -6,8 +6,9 @@ export default class Filter extends React.Component{
       <div id="filterDiv">
         <h1>Filter</h1>
         <div>
-          
+          This is the filter
         </div>
       </div>
     )
   }
+}
