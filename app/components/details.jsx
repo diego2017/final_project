@@ -1,50 +1,72 @@
 import React from "react";
 import HeaderContainer from "./header_container.jsx";
+import _ from "lodash";
 
 export default class Details extends React.Component {
   componentWillMount(){
-    let id = this.props.routeParams.id;
+    let id = parseInt(this.props.routeParams.id);
+    let student = _.find(this.props.route.students, (el) => el.id === id);
+    this.state = {
+      student: student
+    }
   }
 
   render(){
+    let student = this.state.student;
+    let skillsList = student.skills.map((el) => {
+      return(
+          <li>{el}</li>
+      )
+    });
+    let interestsList = student.interests.map((el) => {
+      return(
+          <li>{el}</li>
+      )
+    });
     return(
       <div>
         <HeaderContainer />
         <div className="ui items">
           <div className="item">
-            <div className="image">
-              <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAw2AAAAJDgyMGQyMTk5LTU4NDgtNGZhMC05NzU5LWI1OWIxZGQzNDdjYQ.jpg"></img>
-            </div>
             <div className="content">
-              <a className="header studentName">Diego Villanueva</a>
-              <div className="meta">
-                <span>Bio</span>
+
+            <div className="photoBox">
+              <div className="photo">
+                <img src={student.image_url}></img>
               </div>
-              <div className="description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div className="content">
+                <a className="photoName">{student.first_name} {student.last_name}</a>
+              </div>
+            </div>
+
+            <br/>
+              <div className="detailsBox">
+                <div className="meta">
+                  <span>Bio</span>
+                </div>
+                <div className="description">
+                  <p>{student.bio}</p>
+                </div>
               </div>
               <br/>
-              <div className="meta">
-                <span>Skills</span>
-              </div>
-              <div className="description">
-                <ul>
-                  <li> Javascript </li>
-                  <li> CSS </li>
-                  <li> React </li>
-                </ul>
+              <div className="detailsBox">
+                <div className="meta">
+                  <span>Skills</span>
+                </div>
+                <div className="description">
+                  <ul>{ skillsList }</ul>
+                </div>
               </div>
               <br/>
-              <div className="meta">
-                <span>Interests</span>
+              <div className="detailsBox">
+                <div className="meta">
+                  <span>Interests</span>
+                </div>
+                <div className="description">
+                  <ul>{ interestsList }</ul>
+                </div>
               </div>
-              <div className="description">
-                <ul>
-                  <li> Movies </li>
-                  <li> Pubs </li>
-                  <li> Travelling </li>
-                </ul>
-              </div>
+              <br/>
             </div>
           </div>
         </div>

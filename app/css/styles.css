@@ -7,9 +7,34 @@ body{
     color: #fff!important;
 }
 .header-spacer{
-  height:45px;
+  height:50px;
 }
 
 .studentName{
   color: red;
+}
+
+.photoName{
+  color: black;
+}
+
+
+.detailsBox{
+  padding: 10px;
+  /*max-height: 300px;*/
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px #888888;
+}
+
+.photoBox{
+  padding: 10px;
+  max-width: 223px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px #888888;
+}
+
+.photo img{
+  max-width: 200px;
 }
