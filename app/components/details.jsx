@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderContainer from "./header_container.jsx";
 import _ from "lodash";
+//   ^ lodash is like underscore, we need it to use _.find
 
 export default class Details extends React.Component {
   componentWillMount(){

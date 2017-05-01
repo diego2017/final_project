@@ -7,6 +7,49 @@
   <link rel="stylesheet" href="./app/css/semantic.min.css">
 </head>
 <body>
+
+
+  <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key:   86fpeqoh55mo6z
+    authorize: true
+    onLoad: onLinkedInLoad
+  </script>
+  <script type="text/javascript">
+      // Setup an event listener to make an API call once auth is complete
+      function onLinkedInLoad() {
+          IN.Event.on(IN, "auth", getProfileData);
+      }
+      // Handle the successful return from the API call
+        function onSuccess(data) {
+          debugger;
+        console.log(data)
+          // Take all the data from LinkedIn
+          // Send it to the Users Controller to potentially create users
+        $.ajax({
+          url: "http://localhost:3000/signin",
+          method: "POST",
+          data: data,
+          success: function(data){
+            console.log(data)
+          },
+          error: function(e) {
+            console.log(e.responseText);
+          }
+        })
+      }
+      // Handle an error response from the API call
+      function onError(error) {
+          console.log(error);
+      }
+
+      // Use the API call wrapper to request the member's basic profile data
+      function getProfileData() {
+          IN.API.Raw("/people/~").result(onSuccess).error(onError);
+      }
+  </script>
+  <h1>LinkedIn Connect Page</h1>
+  <script type="in/Login"></script>
+
   <div id="app"></div>
 </body>
 </html>
