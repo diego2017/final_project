@@ -2,9 +2,14 @@
 body{
   font-family: Arial;
 }
-#headerDiv{
-  background-color: red;
-  padding: 0;
-  border: 0;
-  margin-top: 0px;
+.redMenu {
+    background-color: #ec1b23!important;
+    color: #fff!important;
+}
+.header-spacer{
+  height:45px;
+}
+
+.studentName{
+  color: red;
 }

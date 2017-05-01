@@ -11,9 +11,16 @@ export default class AlumniListContainer extends React.Component {
     // console.log(this.props.foo); // => 1234
 
     return(
+      // <div>
+      //   <h1>Alumni List</h1>
+      //   { studentList }
+      // </div>
+
       <div>
         <h1>Alumni List</h1>
-        { studentList }
+        <div className="ui doubling cards">
+          { studentList }
+        </div>
       </div>
     );
   }
