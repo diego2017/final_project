@@ -28,8 +28,8 @@
            params: data
         };
       // debugger;
-        Axios.post("http://localhost:3000/signin", {}, config).then(function(res){
-          startApp();
+        Axios.post("http://localhost:3000/users", {}, config).then(function(res){
+          startApp(data.id);
         }).catch(function(res){
           alert("Something has gone wrong, please check back later")
         })
