@@ -14,9 +14,18 @@ export default class Header extends React.Component{
               Alumni Index
             </a>
 
+              <a className="item" href="#" onClick={this.signOut}>
+                Signout
+              </a>
+
+
         </div>
         <div className="header-spacer"></div>
       </div>
     )
+  }
+  signOut(){
+    Axios.get("http://localhost:3000/signout");
+    IN.User.logout(() => {window.location = "/"})
   }
 }

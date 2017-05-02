@@ -14,8 +14,10 @@ body{
   color: red;
 }
 
-.photoName{
+.name{
   color: black;
+  text-align: center;
+  font-size: 1.3em;
 }
 
 
@@ -36,5 +38,6 @@ body{
 }
 
 .photo img{
-  max-width: 200px;
+  width: 200px;
+  height: 200px;
 }

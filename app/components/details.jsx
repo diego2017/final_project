@@ -35,7 +35,7 @@ export default class Details extends React.Component {
               <div className="photo">
                 <img src={student.image_url}></img>
               </div>
-              <div className="content">
+              <div className="content name">
                 <a className="photoName">{student.first_name} {student.last_name}</a>
               </div>
             </div>

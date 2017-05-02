@@ -10,7 +10,7 @@
 
 
   <script type="text/javascript" src="//platform.linkedin.com/in.js">
-    api_key:   86fpeqoh55mo6z
+    api_key:   865aejmyjh25hq
     authorize: true
     onLoad: onLinkedInLoad
   </script>
@@ -20,22 +20,22 @@
           IN.Event.on(IN, "auth", getProfileData);
       }
       // Handle the successful return from the API call
-        function onSuccess(data) {
-          debugger;
-        console.log(data)
-          // Take all the data from LinkedIn
-          // Send it to the Users Controller to potentially create users
-        $.ajax({
-          url: "http://localhost:3000/signin",
-          method: "POST",
-          data: data,
-          success: function(data){
-            console.log(data)
-          },
-          error: function(e) {
-            console.log(e.responseText);
-          }
+      function onSuccess(data) {
+        var config = {
+           headers: {
+             'Content-Type': 'application/x-www-form-urlencoded'
+           },
+           params: data
+        };
+      // debugger;
+        Axios.post("http://localhost:3000/signin", {}, config).then(function(res){
+          startApp();
+        }).catch(function(res){
+          alert("Something has gone wrong, please check back later")
         })
+        // console.log(data)
+        // Take all the data from LinkedIn
+        // Send it to the Users Controller to potentially create users
       }
       // Handle an error response from the API call
       function onError(error) {
@@ -46,8 +46,9 @@
       function getProfileData() {
           IN.API.Raw("/people/~").result(onSuccess).error(onError);
       }
+
   </script>
-  <h1>LinkedIn Connect Page</h1>
+  <!-- <h1>LinkedIn Connect Page</h1> -->
   <script type="in/Login"></script>
 
   <div id="app"></div>
