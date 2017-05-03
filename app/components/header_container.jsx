@@ -18,12 +18,21 @@ export default class Header extends React.Component{
                 Signout
               </a>
 
+              <a className="item" href={"#/details/" + window.currentUser.id}>
+                Your Profile
+              </a>
+
 
         </div>
         <div className="header-spacer"></div>
       </div>
     )
   }
+  //
+  // EditProfile(){
+  //
+  // }
+
   signOut(){
     Axios.get("http://localhost:3000/signout");
     IN.User.logout(() => {window.location = "/"})

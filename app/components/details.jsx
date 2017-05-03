@@ -14,14 +14,16 @@ export default class Details extends React.Component {
 
   render(){
     let student = this.state.student;
+    debugger;
     let skillsList = student.skills.map((el) => {
       return(
-          <li>{el}</li>
+          <li>{el.name}</li>
+
       )
     });
     let interestsList = student.interests.map((el) => {
       return(
-          <li>{el}</li>
+          <li>{el.name}</li>
       )
     });
     return(
@@ -33,7 +35,7 @@ export default class Details extends React.Component {
 
             <div className="photoBox">
               <div className="photo">
-                <img src={student.image_url}></img>
+                <img src={student.img_url}></img>
               </div>
               <div className="content name">
                 <a className="photoName">{student.first_name} {student.last_name}</a>

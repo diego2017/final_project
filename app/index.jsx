@@ -5,11 +5,9 @@ import Routes from './config/routes.jsx'
 import Axios from 'axios'
 
 window.Axios = Axios;
-window.startApp = function(studentId){
-  window.studentId = studentId;
+window.startApp = function(students){
   ReactDOM.render(
-    // <App />,
-    Routes,
+    Routes(students),
     document.getElementById('app')
   );
 }
