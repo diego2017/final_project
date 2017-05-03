@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>GA Index</title>
-  <link rel="stylesheet" href="./app/css/styles.css">
-  <link rel="stylesheet" href="./app/css/semantic.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/semantic.min.css">
+  
 </head>
 <body>
-
-
   <script type="text/javascript" src="//platform.linkedin.com/in.js">
     api_key:   865aejmyjh25hq
     authorize: true
@@ -24,7 +23,6 @@
         IN.API.Profile("me").fields("id", "first-name", "last-name", "email-address"
         , "public-profile-url", "picture-url", "picture-urls::(original)", "headline", "summary", "location", "industry", "positions").result(function(data){
           window.studentId = data.values[0].id
-          debugger;
           var config = {
              headers: {
                'Content-Type': 'application/x-www-form-urlencoded'
@@ -72,11 +70,33 @@
       }
 
   </script>
+  <div id="app">
+    <!-- this part will only show before signing in -->
+      <div class="red">
+            <img width="50" height="45" src="http://www.poncecitymarket.com/content/uploads/general_assembly_logo-e1465576797290-268x224.png"></img>
+      </div>
+    <div class="ui inverted vertical masthead center aligned segment allPage">
 
 
-  <!-- <h1>LinkedIn Connect Page</h1> -->
-  <script type="in/Login"></script>
-
-  <div id="app"></div>
+      <div class="ui text container">
+        <br/>
+        <br/>
+        <br/>
+        <h1 class="ui inverted header">
+          Welcome to GA Index
+        </h1>
+        <img src="" alt="">
+        <h2>Where you can find all GA's Alumni and current students !</h2>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div class="ui text container">
+        <h2> Join using your LinkedIn account</h2>
+        <br/>
+        <script type="in/Login"></script>
+      </div>
+    </div>
+  </div>    <!-- close app -->
 </body>
 </html>

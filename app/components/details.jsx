@@ -14,7 +14,6 @@ export default class Details extends React.Component {
 
   render(){
     let student = this.state.student;
-    debugger;
     let skillsList = student.skills.map((el) => {
       return(
           <li>{el.name}</li>
@@ -67,6 +66,15 @@ export default class Details extends React.Component {
                 </div>
                 <div className="description">
                   <ul>{ interestsList }</ul>
+                </div>
+              </div>
+              <br/>
+              <div className="detailsBox">
+                <div className="meta">
+                  <span>Contact me</span>
+                </div>
+                <div className="description">
+                  <a href={student.linkedin_url} target="_blank"> {student.linkedin_url} </a>
                 </div>
               </div>
               <br/>

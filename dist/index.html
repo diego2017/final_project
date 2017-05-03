@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GA Index</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/semantic.min.css">
+  
+</head>
+<body>
+  <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key:   865aejmyjh25hq
+    authorize: true
+    onLoad: onLinkedInLoad
+  </script>
+  <script type="text/javascript">
+      // Setup an event listener to make an API call once auth is complete
+      function onLinkedInLoad() {
+          IN.Event.on(IN, "auth", getProfileData);
+      }
+      // Handle the successful return from the API call
+      function onSuccess(data) {
+        IN.API.Profile("me").fields("id", "first-name", "last-name", "email-address"
+        , "public-profile-url", "picture-url", "picture-urls::(original)", "headline", "summary", "location", "industry", "positions").result(function(data){
+          window.studentId = data.values[0].id
+          var config = {
+             headers: {
+               'Content-Type': 'application/x-www-form-urlencoded'
+             },
+             params: data
+          };
+
+          Axios.post("http://localhost:3000/students", {}, config)
+          .then(function(res){
+
+            Axios.get("http://localhost:3000/students?student_id=" + window.studentId)
+              .then(function (data) {
+                console.log('current user', data.data);
+
+                 //  After we receive all the user data from our Rails DB, find which of those users
+                 //  corresponds to the OAuth user we just logged in as
+                 window.currentUser = _.find(data.data, {linkedin_id: window.studentId});
+                 // TODO: pass this currentUser in to startApp and beyond, instead of using evil global vars
+
+
+                startApp(data.data);
+              }.bind(this))
+              .catch(function (error) {
+                console.log(error);
+              });
+          }).catch(function(res){
+            alert("Something has gone wrong with API request after the LinkedIn signin");
+          })
+        })
+        // console.log(data)
+        // Take all the data from LinkedIn
+        // Send it to the Users Controller to potentially create users
+      }
+      // Handle an error response from the API call
+      function onError(error) {
+          console.log(error);
+      }
+
+      // Use the API call wrapper to request the member's basic profile data
+      function getProfileData() {
+
+          IN.API.Raw("/people/~").result(onSuccess).error(onError);
+          // IN.API.Raw("/people/~:(id,first-name,last-name,location,positions)?format=json").result(onSuccess).error(onError);
+
+      }
+
+  </script>
+  <div id="app">
+    <!-- this part will only show before signing in -->
+      <div class="red">
+            <img width="50" height="45" src="http://www.poncecitymarket.com/content/uploads/general_assembly_logo-e1465576797290-268x224.png"></img>
+      </div>
+    <div class="ui inverted vertical masthead center aligned segment allPage">
+
+
+      <div class="ui text container">
+        <br/>
+        <br/>
+        <br/>
+        <h1 class="ui inverted header">
+          Welcome to GA Index
+        </h1>
+        <img src="" alt="">
+        <h2>Where you can find all GA's Alumni and current students !</h2>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div class="ui text container">
+        <h2> Join using your LinkedIn account</h2>
+        <br/>
+        <script type="in/Login"></script>
+      </div>
+    </div>
+  </div>    <!-- close app -->
+<script type="text/javascript" src="index_bundle.js"></script></body>
+</html>

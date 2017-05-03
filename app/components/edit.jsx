@@ -3,7 +3,7 @@ import HeaderContainer from "./header_container.jsx";
 import _ from "lodash";
 //   ^ lodash is like underscore, we need it to use _.find
 
-export default class Details extends React.Component {
+export default class Edit extends React.Component {
   componentWillMount(){
     let id = parseInt(this.props.routeParams.id);
     let student = _.find(this.props.route.students, (el) => el.id === id);

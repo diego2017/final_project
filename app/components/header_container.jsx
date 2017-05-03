@@ -13,15 +13,13 @@ export default class Header extends React.Component{
             <a className="item" href="#/">
               Alumni Index
             </a>
+            <a className="item" href={"#/details/" + window.currentUser.id}>
+              Your Profile
+            </a>
 
-              <a className="item" href="#" onClick={this.signOut}>
-                Signout
-              </a>
-
-              <a className="item" href={"#/details/" + window.currentUser.id}>
-                Your Profile
-              </a>
-
+            <a className="item" href="#" onClick={this.signOut}>
+              Signout
+            </a>
 
         </div>
         <div className="header-spacer"></div>
