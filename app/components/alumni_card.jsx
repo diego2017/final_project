@@ -17,10 +17,10 @@ export default class AlumniCard extends React.Component {
           </a>
         </div>
 
-        <div className="content">
+        <div className="content cardData">
           <a className="header name" href={`#/details/${ this.props.student.id }`}>{this.props.student.first_name} {this.props.student.last_name}</a>
-          <div className="meta">
-              <a>{this.props.student.course}</a>
+          <div className="meta cohort">
+              <a>{this.props.student.cohort}</a>
           </div>
         </div>
       </div>

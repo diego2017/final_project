@@ -15,17 +15,21 @@ export default class Details extends React.Component {
 
   render(){
     let student = this.state.student;
-    let skillsList = student.skills.map((el) => {
-      return(
-          <li>{el.name}</li>
 
-      )
-    });
-    let interestsList = student.interests.map((el) => {
-      return(
-          <li>{el.name}</li>
-      )
-    });
+    ////////////// we dont need this part at the moment because the skills and interests are a temporary column in Student
+    // let skillsList = student.skills.map((el) => {
+    //   return(
+    //       <li>{el.name}</li>
+    //
+    //   )
+    // });
+    // let interestsList = student.interests.map((el) => {
+    //   return(
+    //       <li>{el.name}</li>
+    //   )
+    // });
+    //////////////
+
     return(
       <div>
         <HeaderContainer />
@@ -39,6 +43,9 @@ export default class Details extends React.Component {
               </div>
               <div className="content name">
                 <a className="photoName">{student.first_name} {student.last_name}</a>
+              </div>
+              <div className="meta cohort">
+                  <p>{student.cohort}</p>
               </div>
             </div>
 
@@ -57,7 +64,7 @@ export default class Details extends React.Component {
                   <span>Skills</span>
                 </div>
                 <div className="description">
-                  <ul>{ skillsList }</ul>
+                  <p>{student.skills}</p>
                 </div>
               </div>
               <br/>
@@ -66,7 +73,7 @@ export default class Details extends React.Component {
                   <span>Interests</span>
                 </div>
                 <div className="description">
-                  <ul>{ interestsList }</ul>
+                  <p>{student.interests}</p>
                 </div>
               </div>
               <br/>

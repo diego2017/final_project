@@ -65,3 +65,11 @@ body{
     width: 90%;
     height: 30px;
 }
+
+.meta.cohort{
+  text-align: center;
+}
+
+div.content.cardData{
+  padding: 1em 0em .5em 1em!important;
+}
