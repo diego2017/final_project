@@ -96,13 +96,13 @@ export default class Edit extends React.Component {
     let website_url = null;
 
    cohort = <select className="ui search dropdown" ref="cohort" defaultValue={student.cohort}>
-     <option value="wdi20">WDI19</option>
-     <option value="wdi20">WDI20</option>
-     <option value="wdi22">WDI22</option>
-     <option value="wdi22">UXDI14</option>
-     <option value="wdi22">UXDI15</option>
-     <option value="wdi22">UXDI16</option>
-     <option value="wdi22">STAFF</option>
+     <option value="WDI19">WDI 19</option>
+     <option value="WDI20">WDI 20</option>
+     <option value="WDI21">WDI 21</option>
+     <option value="UXDI14">UXDI 14</option>
+     <option value="UXDI15">UXDI 15</option>
+     <option value="UXDI16">UXDI 16</option>
+     <option value="STAFF">STAFF</option>
    </select>
     // cohort = <textarea className="edit text small"   ref="cohort" defaultValue={student.cohort}/>
     bio = <textarea className="edit text"   ref="bio" defaultValue={student.bio}/>
