@@ -3,6 +3,29 @@ body{
   font-family: Arial;
   background-color: rgba(130, 127, 127, 0.38)!important;
 }
+
+@media (min-width: 700px) {
+  #dcontainer{
+    width: 40%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  #dcontainer2{
+    width: 70%;
+    margin: auto;
+  }
+}
+
+#photo-container{
+  width: 100%;
+}
+
+.photoBox{
+  margin: auto;
+}
+
 .redMenu {
     background-color: #ec1b23!important;
     color: #fff!important;
@@ -57,18 +80,19 @@ body{
 }
 
 .edit.text{
-    width: 90%;
+    width: 100%;
     height: 130px;
 }
 
 .edit.text.small{
-    width: 90%;
+    width: 100%;
     height: 30px;
 }
 
 .meta.cohort{
   text-align: center;
 }
+
 
 div.content.cardData{
   padding: 1em 0em .5em 1em!important;

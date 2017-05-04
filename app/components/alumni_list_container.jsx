@@ -5,7 +5,7 @@ export default class AlumniListContainer extends React.Component {
 
   render(){
     let studentList = this.props.students.map((el) => {
-      return(<AlumniCard student={el} />)
+      return(<AlumniCard key={el.id} student={el} />)
     })
 
     return(

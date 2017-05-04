@@ -95,7 +95,16 @@ export default class Edit extends React.Component {
     let facebook_url = null;
     let website_url = null;
 
-    cohort = <textarea className="edit text small"   ref="cohort" defaultValue={student.cohort}/>
+   cohort = <select className="ui search dropdown" ref="cohort" defaultValue={student.cohort}>
+     <option value="wdi20">WDI19</option>
+     <option value="wdi20">WDI20</option>
+     <option value="wdi22">WDI22</option>
+     <option value="wdi22">UXDI14</option>
+     <option value="wdi22">UXDI15</option>
+     <option value="wdi22">UXDI16</option>
+     <option value="wdi22">STAFF</option>
+   </select>
+    // cohort = <textarea className="edit text small"   ref="cohort" defaultValue={student.cohort}/>
     bio = <textarea className="edit text"   ref="bio" defaultValue={student.bio}/>
     skills = <textarea className="edit text"   ref="skills" defaultValue={student.skills}/>
     interests = <textarea className="edit text"   ref="interests" defaultValue={student.interests}/>
@@ -106,7 +115,7 @@ export default class Edit extends React.Component {
 
 
     return(
-      <div>
+      <div id="dcontainer">
         <HeaderContainer />
         <div className="ui items">
           <div className="item">

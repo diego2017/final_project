@@ -31,21 +31,23 @@ export default class Details extends React.Component {
     //////////////
 
     return(
-      <div>
+      <div id="dcontainer">
         <HeaderContainer />
         <div className="ui items">
           <div className="item">
             <div className="content">
 
-            <div className="photoBox">
-              <div className="photo">
-                <img src={student.img_url}></img>
-              </div>
-              <div className="content name">
-                <a className="photoName">{student.first_name} {student.last_name}</a>
-              </div>
-              <div className="meta cohort">
-                  <p>{student.cohort}</p>
+            <div id="photo-container">
+              <div className="photoBox">
+                <div className="photo">
+                  <img src={student.img_url}></img>
+                </div>
+                <div className="content name">
+                  <a className="photoName">{student.first_name} {student.last_name}</a>
+                </div>
+                <div className="meta cohort">
+                    <p>{student.cohort}</p>
+                </div>
               </div>
             </div>
 
