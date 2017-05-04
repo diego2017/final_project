@@ -5,8 +5,10 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: __dirname + "/app/index.ejs",
   filename: "index.html",
-  inject: 'body'
+  inject: 'body',
+  api_host: "foo"
 })
+const webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -27,6 +29,9 @@ module.exports = {
   },
   plugins: [
     HTMLWebpackPluginConfig,
-    CopyWebpackPluginConfig
+    CopyWebpackPluginConfig,
+    new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
   ]
 }

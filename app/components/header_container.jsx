@@ -32,7 +32,7 @@ export default class Header extends React.Component{
   // }
 
   signOut(){
-    Axios.get("http://localhost:3000/signout");
+    Axios.get(API_HOST + "/signout");
     IN.User.logout(() => {window.location = "/"})
   }
 }

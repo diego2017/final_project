@@ -18,13 +18,30 @@ export default class Edit extends React.Component {
 
     // Get the valeus from the input fields
     let newBio = this.refs.bio.value;
-    alert(newBio);
+    let newLinkedin_url = this.refs.linkedin_url.value;
+    let newGithub_url = this.refs.github_url.value;
+    let newFacebook_url = this.refs.facebook_url.value;
+    let newWebsite_url = this.refs.website_url.value;
+    // alert(newBio);
+    // alert(newLinkedin_url);
+    // alert(newGithub_url);
+    // alert(newFacebook_url);
+    // alert(newWebsite_url);
+
+
+
 
     // Make an AXIOS post request to the backend api to save the values from the input fields
-    Axios.post('http://localhost:3000/students/10', {},
+    Axios.post(API_HOST + '/students/' + window.currentUser.id, {},
       {
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        params: {bio: newBio}
+        params: {
+          bio: newBio,  
+          linkedin_url: newLinkedin_url,
+          github_url: newGithub_url,
+          facebook_url: newFacebook_url,
+          website_url: newWebsite_url
+        }
       }
     )
     .then(function (data) {
@@ -38,7 +55,7 @@ export default class Edit extends React.Component {
       student['bio'] = newBio;
 
       console.log( data );
-      debugger;
+      this.props.router.push('/details/' + window.currentUser.id);
     }.bind(this))
     .catch(function (error) {
       console.log(error);
@@ -63,7 +80,16 @@ export default class Edit extends React.Component {
     });
 
     let bio = null;
+    let linkedin_url = null;
+    let github_url = null;
+    let facebook_url = null;
+    let website_url = null;
+
     bio = <textarea className="edit text"   ref="bio" defaultValue={student.bio}/>
+    linkedin_url = <textarea className="edit text small"   ref="linkedin_url" defaultValue={student.linkedin_url}/>
+    github_url = <textarea className="edit text small"   ref="github_url" defaultValue={student.github_url}/>
+    facebook_url = <textarea className="edit text small"   ref="facebook_url" defaultValue={student.facebook_url}/>
+    website_url = <textarea className="edit text small"   ref="website_url" defaultValue={student.website_url}/>
 
 
     return(
@@ -95,6 +121,32 @@ export default class Edit extends React.Component {
                 </div>
               </div>
               <br/>
+              <div className="detailsBox">
+                <div className="meta">
+                  <span>LinkedIn</span>
+                </div>
+                <div className="description">
+                  {linkedin_url}
+                </div>
+                <div className="meta">
+                  <span>Github</span>
+                </div>
+                <div className="description">
+                  {github_url}
+                </div>
+                <div className="meta">
+                  <span>Facebook</span>
+                </div>
+                <div className="description">
+                  {facebook_url}
+                </div>
+                <div className="meta">
+                  <span>Website</span>
+                </div>
+                <div className="description">
+                  {website_url}
+                </div>
+              </div>
             </div>
           </div>
         </div>

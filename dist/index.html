@@ -5,7 +5,7 @@
   <title>GA Index</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/semantic.min.css">
-  
+
 </head>
 <body>
   <script type="text/javascript" src="//platform.linkedin.com/in.js">
@@ -30,10 +30,10 @@
              params: data
           };
 
-          Axios.post("http://localhost:3000/students", {}, config)
+          Axios.post(API_HOST + "/students", {}, config)
           .then(function(res){
 
-            Axios.get("http://localhost:3000/students?student_id=" + window.studentId)
+            Axios.get(API_HOST + "/students?student_id=" + window.studentId)
               .then(function (data) {
                 console.log('current user', data.data);
 

@@ -55,3 +55,13 @@ body{
 .red{
   background-color: #ec1b23;
 }
+
+.edit.text{
+    width: 90%;
+    height: 130px;
+}
+
+.edit.text.small{
+    width: 90%;
+    height: 30px;
+}
