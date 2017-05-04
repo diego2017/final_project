@@ -13,8 +13,8 @@ export default class Header extends React.Component{
             <a className="item" href="#/">
               Alumni Index
             </a>
-            <a className="item" href={"#/details/" + window.currentUser.id}>
-              Your Profile
+            <a className="item" href={"#/edit/" + window.currentUser.id}>
+              Edit Your Profile
             </a>
 
             <a className="item" href="#" onClick={this.signOut}>

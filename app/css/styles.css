@@ -55,3 +55,8 @@ body{
 .red{
   background-color: #ec1b23;
 }
+
+.edit.text{
+    width: 90%;
+    height: 130px;
+}

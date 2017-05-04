@@ -10,6 +10,7 @@ export default class Details extends React.Component {
     this.state = {
       student: student
     }
+    console.log('componentWillMount RUN for Details', this.props.route.students);
   }
 
   render(){
@@ -44,7 +45,7 @@ export default class Details extends React.Component {
             <br/>
               <div className="detailsBox">
                 <div className="meta">
-                  <span>Bio</span>
+                  <span>About me</span>
                 </div>
                 <div className="description">
                   <p>{student.bio}</p>
@@ -75,6 +76,15 @@ export default class Details extends React.Component {
                 </div>
                 <div className="description">
                   <a href={student.linkedin_url} target="_blank"> {student.linkedin_url} </a>
+                </div>
+                <div className="description">
+                  <a href={student.github_url} target="_blank"> {student.github_url} </a>
+                </div>
+                <div className="description">
+                  <a href={student.facebook_url} target="_blank"> {student.facebook_url} </a>
+                </div>
+                <div className="description">
+                  <a href={student.website_url} target="_blank"> {student.website_url} </a>
                 </div>
               </div>
               <br/>
