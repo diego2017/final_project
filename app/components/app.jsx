@@ -5,6 +5,12 @@ import AlumniListContainer from "./alumni_list_container.jsx";
 import _ from "lodash";
 
 export default class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      cohort: "ALL"
+    };
+  }
 
   render(){
     console.log( this )
@@ -12,9 +18,14 @@ export default class App extends React.Component {
     return(
       <div id="dcontainer2">
         <HeaderContainer/>
-        <FilterContainer/>
-        <AlumniListContainer students={this.props.route.students}/>
+        <FilterContainer setCohort={this.setCohort.bind(this)}/>
+        <AlumniListContainer students={this.props.route.students} cohort={this.state.cohort}/>
       </div>
     );
   }  // close render
+  setCohort(event){
+    this.setState({
+      cohort: event.target.value
+    });
+  }
 }
