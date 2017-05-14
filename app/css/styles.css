@@ -16,7 +16,20 @@ body{
     width: 70%;
     margin: auto;
   }
+  #gaLogo{
+    margin-left: 15vw;
+  }
+  #signout{
+    margin-right: 15vw;
+  }
 }
+
+@media (min-width: 900px) {
+  #dcontainer3{
+    backgroun-color:red!important;
+  }
+}
+
 
 #photo-container{
   width: 100%;
