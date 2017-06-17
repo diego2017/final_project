@@ -65,7 +65,7 @@ export default class Edit extends React.Component {
       this.props.router.push('/details/' + window.currentUser.id);
     }.bind(this))
     .catch(function (error) {
-      console.log(error);
+      // console.log(error);w
     });
 
 

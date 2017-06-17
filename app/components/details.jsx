@@ -10,7 +10,7 @@ export default class Details extends React.Component {
     this.state = {
       student: student
     }
-    console.log('componentWillMount RUN for Details', this.props.route.students);
+    // console.log('componentWillMount RUN for Details', this.props.route.students);
   }
 
   render(){

@@ -37,7 +37,7 @@
 
             Axios.get(API_HOST + "/students?student_id=" + window.studentId)
               .then(function (data) {
-                console.log('current user', data.data);
+                // console.log('current user', data.data);
 
                  //  After we receive all the user data from our Rails DB, find which of those users
                  //  corresponds to the OAuth user we just logged in as
@@ -48,7 +48,7 @@
                 startApp(data.data);
               }.bind(this))
               .catch(function (error) {
-                console.log(error);
+                // console.log(error);
               });
           }).catch(function(res){
             alert("Something has gone wrong with API request after the LinkedIn signin");
